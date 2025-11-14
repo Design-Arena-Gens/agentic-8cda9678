@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.battery-panel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(140deg, #05070a 0%, #0f172a 45%, #020409 100%);
+  box-shadow: 0 24px 60px rgba(5, 7, 10, 0.6), 0 0 0 1px rgba(148, 163, 184, 0.05);
+}
+
+.battery-panel canvas {
+  height: 100% !important;
+}
+
+.tag {
+  display: flex;
+  flex-direction: column;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(160deg, rgba(12, 18, 38, 0.85), rgba(5, 8, 18, 0.65));
+  color: #e2e8f0;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  gap: 0.35rem;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.15);
+}
+
+.tag-value {
+  font-size: 1rem;
+  letter-spacing: normal;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.range-input {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #ff453a, #ffd60a 55%, #30d158);
+  position: relative;
+  outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 2px solid rgba(15, 118, 110, 0.4);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+}
+
+.range-input::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 2px solid rgba(15, 118, 110, 0.4);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+}
+
+.range-input::-moz-range-track {
+  height: 12px;
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.6rem;
+  margin-bottom: 0.4rem;
+  color: rgba(148, 163, 184, 0.8);
+}
+
+.metric {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .metric {
+    color: #f8fafc;
+  }
+}
